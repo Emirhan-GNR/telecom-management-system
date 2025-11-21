@@ -1,130 +1,47 @@
-# 📡 Communication System – Java Console App
+# 📡 Telecom Management System – Java OOP Console Project
 
-This project is a simple **Java console-based communication system** that simulates mobile operators, subscribers, billing, and usage tracking. It demonstrates multi-class Object-Oriented Programming using `ServiceProvider`, `Subscriber`, `Invoice`, and `SimulateSystem`.
-
----
-
-## 🚀 Features
-
-- Create Service Providers  
-- Create Subscribers  
-- Make Voice Calls  
-- Send Messages  
-- Use Internet  
-- Pay Invoice  
-- Change Service Provider  
-- Change Usage Limit  
-- List Subscribers  
-- List Service Providers  
-- Fully menu-driven console UI
+The **Telecom Management System** is a Java console application designed to simulate basic telecommunication operations such as voice calls, messaging, data usage, billing, and service provider management.  
+The project demonstrates clean **Object-Oriented Programming** structure, method-based logic, and the interaction between multiple domain classes.
 
 ---
 
-## 🧱 Project Structure
+## 📌 Overview
 
-### ✔ `ServiceProvider.java`
-Represents a mobile operator.
+The system manages three core entities:
 
-Stores:
-- Provider ID  
-- Name  
-- Voice Call Cost  
-- Messaging Cost  
-- Internet Cost  
-- Discount Ratio  
+- **Subscriber** → makes calls, sends messages, uses internet  
+- **ServiceProvider** → defines pricing and discounts  
+- **Invoice** → tracks spending, usage limits, and payments  
 
-Provides methods to calculate:
-- Voice call cost  
-- Messaging cost  
-- Internet cost  
+A console-based menu allows users to:
 
----
-
-### ✔ `Subscriber.java`
-Represents a user.
-
-Stores:
-- Subscriber ID  
-- Name  
-- Age  
-- Service Provider  
-- Active Status  
-- Invoice (linked object)
-
-Subscriber actions:
+- Create service providers  
+- Create subscribers  
 - Make voice calls  
 - Send messages  
 - Use internet  
-- Pay invoice  
-- Change usage limit  
-- Change service provider  
+- Pay invoices  
+- Change service providers  
+- Update usage limits  
+- List all subscribers and service providers  
 
-All spending is processed through the subscriber’s invoice.
-
----
-
-### ✔ `Invoice.java`
-Represents the billing system.
-
-Tracks:
-- Usage limit  
-- Current spending  
-- Last payment day  
-
-Supports:
-- Adding spending  
-- Changing usage limit  
-- Paying the invoice  
-- Checking if the subscriber is still active  
+All operations are done in memory using Java collections.
 
 ---
 
-### ✔ `SimulateSystem.java`
-Main console menu that connects all classes.
+## 🧱 OOP Concepts Used
 
-Menu options:
-1. Create Service Provider  
-2. Create Subscriber  
-3. Voice Call  
-4. Messaging  
-5. Internet Usage  
-6. Pay Invoice  
-7. Change Service Provider  
-8. Change Usage Limit  
-9. List Subscribers  
-10. List Providers  
-11. Exit  
+### 🔹 Classes & Encapsulation  
+Each entity (`Subscriber`, `ServiceProvider`, `Invoice`) holds its own data and behavior with private fields + public methods.
 
-Uses `Scanner` for input and `ArrayList` for storing objects.
+### 🔹 Interaction Between Objects  
+Subscribers interact with service providers for pricing, and all usage is logged into the associated invoice.
 
----
+### 🔹 Method-Based Design  
+Operations such as `makeVoiceCall()`, `sendMessage()`, `useInternet()`, `payBill()`, and cost calculations are implemented through modular, reusable methods.
 
-## 🛠 Technologies Used
+### 🔹 Polymorphism (via design structure)  
+Even though not heavily subclass-driven, the system uses clean separation of responsibilities and cross-class communication.
 
-- Java (JDK 17+ recommended)  
-- Scanner (user input)  
-- ArrayList (object storage)  
-- Random ID generation  
-- OOP principles:
-  - Classes  
-  - Encapsulation  
-  - Object interaction  
-
----
-
-## ▶️ How to Run
-
-1. Put all project files in the same folder:
-
-Invoice.java  
-ServiceProvider.java  
-Subscriber.java  
-SimulateSystem.java
-
-2. Compile the project:
-
-javac *.java
-
-3. Run the simulation:
-
-java SimulateSystem
+### 🔹 Error & Limit Handling  
+Methods such as `isLimitExceeded()` and usage of validation logic help keep operations safe and controlled.
